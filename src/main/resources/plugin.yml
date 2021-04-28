@@ -1,0 +1,4 @@
+name: StrokeMagic
+version: ${project.version}
+main: net.kunmc.lab.strokemagic.StrokeMagic
+api-version: 1.16
