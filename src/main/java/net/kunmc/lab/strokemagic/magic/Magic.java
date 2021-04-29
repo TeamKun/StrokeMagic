@@ -1,8 +1,8 @@
-package net.kunmc.lab.strokemagic.action;
+package net.kunmc.lab.strokemagic.magic;
 
 import org.bukkit.entity.Player;
 
-public interface Action {
+public interface Magic {
     void run(Player player);
 
     String getName();
