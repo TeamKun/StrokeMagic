@@ -16,6 +16,7 @@ public final class StrokeMagic extends JavaPlugin {
         // Plugin startup logic
         INSTANCE = this;
         getServer().getPluginManager().registerEvents(new PlayerToggleRightClickEventDispatcher(), this);
+        getServer().getPluginManager().registerEvents(new StrokeListener(), this);
     }
 
     @Override
