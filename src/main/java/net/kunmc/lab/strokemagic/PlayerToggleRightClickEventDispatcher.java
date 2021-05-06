@@ -24,7 +24,7 @@ public class PlayerToggleRightClickEventDispatcher implements Listener {
     public void onInteractInMainHand(PlayerInteractEvent e) {
         Action action = e.getAction();
         if (action.equals(Action.LEFT_CLICK_AIR) || action.equals(Action.LEFT_CLICK_BLOCK)) return;
-        if (e.getHand().equals(EquipmentSlot.OFF_HAND)) return;
+        if (e.getHand() != null && e.getHand().equals(EquipmentSlot.OFF_HAND)) return;
 
         Player p = e.getPlayer();
         if (toggleOffMainHandTasks.get(p) != null) toggleOffMainHandTasks.get(p).cancel();
@@ -47,7 +47,7 @@ public class PlayerToggleRightClickEventDispatcher implements Listener {
     public void onInteractInOffHand(PlayerInteractEvent e) {
         Action action = e.getAction();
         if (action.equals(Action.LEFT_CLICK_AIR) || action.equals(Action.LEFT_CLICK_BLOCK)) return;
-        if (e.getHand().equals(EquipmentSlot.HAND)) return;
+        if (e.getHand() != null && e.getHand().equals(EquipmentSlot.HAND)) return;
 
         Player p = e.getPlayer();
         if (toggleOffOffHandTasks.get(p) != null) toggleOffOffHandTasks.get(p).cancel();
