@@ -59,6 +59,7 @@ public class StrokeListener implements Listener {
             lastPitches.put(uuid, p.getLocation().getPitch());
         } else {
             isHolding.put(uuid, false);
+            manager.resetStroke(uuid);
         }
     }
 }

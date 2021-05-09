@@ -1,6 +1,7 @@
 package net.kunmc.lab.strokemagic;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -33,9 +34,8 @@ public class PlayerStrokeManager {
     }
 
     public void resetStroke(UUID uuid) {
-        strokes.put(uuid, "");
         Player p = Bukkit.getPlayer(uuid);
-        if (p == null) return;
-        p.resetTitle();
+        if (p != null) p.sendTitle("", ChatColor.DARK_RED + strokes.get(uuid), 0, 10, 0);
+        strokes.put(uuid, "");
     }
 }
