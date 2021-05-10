@@ -8,15 +8,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class PlayerStrokeManager {
+public class PlayerStrokeHandler {
     private final Map<UUID, String> strokes = new HashMap<>();
-    private static final PlayerStrokeManager singleton = new PlayerStrokeManager();
+    private static final PlayerStrokeHandler singleton = new PlayerStrokeHandler();
 
-    public static PlayerStrokeManager getInstance() {
+    public static PlayerStrokeHandler getInstance() {
         return singleton;
     }
 
-    private PlayerStrokeManager() {
+    private PlayerStrokeHandler() {
     }
 
     public void addStroke(UUID uuid, String stroke) {

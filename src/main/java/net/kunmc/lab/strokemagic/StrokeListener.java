@@ -15,7 +15,7 @@ public class StrokeListener implements Listener {
     private final Map<UUID, Boolean> isHolding = new HashMap<>();
     private final Map<UUID, Float> lastYaws = new HashMap<>();
     private final Map<UUID, Float> lastPitches = new HashMap<>();
-    private final PlayerStrokeManager manager = PlayerStrokeManager.getInstance();
+    private final PlayerStrokeHandler manager = PlayerStrokeHandler.getInstance();
 
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent e) {
