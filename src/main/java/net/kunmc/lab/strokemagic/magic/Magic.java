@@ -1,15 +1,16 @@
 package net.kunmc.lab.strokemagic.magic;
 
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public interface Magic {
     void run(Player player);
 
-    String getName();
+    @NotNull String getName();
 
-    String getStroke();
+    @NotNull String getStroke();
 
-    String getAnnounce();
+    @NotNull String getAnnounce();
 
-    String getDescription();
+    @NotNull String getDescription();
 }
