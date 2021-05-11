@@ -27,7 +27,7 @@ public class StrokeListener implements Listener {
 
         float currentYaw = p.getLocation().getYaw();
         float currentPitch = p.getLocation().getPitch();
-        float yawDiff = currentYaw - lastYaws.get(uuid);
+        float yawDiff = calcYawDiff(currentYaw, lastYaws.get(uuid));
         float pitchDiff = currentPitch - lastPitches.get(uuid);
         if (Math.abs(yawDiff) < 12 && Math.abs(pitchDiff) < 12) return;
 
@@ -37,10 +37,15 @@ public class StrokeListener implements Listener {
         strokeHandler.addStroke(uuid, stroke);
     }
 
+    private float calcYawDiff(float yaw1, float yaw2) {
+        float yawDiff = yaw1 - yaw2;
+        if (yawDiff > 270) yawDiff = -360 + yawDiff;
+        if (yawDiff < -270) yawDiff = 360 + yawDiff;
+        return yawDiff;
+    }
+
     private String detectStroke(float yawDiff, float pitchDiff) {
         if (Math.abs(yawDiff) > Math.abs(pitchDiff)) {
-            //360°部分を跨ぐと反転するので180超えたら正負反転
-            if (Math.abs(yawDiff) > 180) yawDiff = -yawDiff;
             return yawDiff > 0 ? "→" : "←";
         } else {
             return pitchDiff > 0 ? "↓" : "↑";
