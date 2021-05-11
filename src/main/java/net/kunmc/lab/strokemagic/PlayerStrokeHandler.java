@@ -31,12 +31,21 @@ public class PlayerStrokeHandler {
 
         String newStroke = getStroke(uuid) + stroke;
         strokes.put(uuid, newStroke);
+
+        if (newStroke.length() >= 16) {
+            isMatched.put(uuid, true);
+        }
+
         if (isStrokeMatched(newStroke)) {
             p.sendTitle(ChatColor.AQUA + newStroke, magicManager.getMagic(newStroke).getName(), 5, 65536, 0);
             isMatched.put(uuid, true);
         } else {
             p.sendTitle("", newStroke, 0, 65536, 0);
         }
+    }
+
+    private void explode() {
+
     }
 
     private String getStroke(UUID uuid) {
