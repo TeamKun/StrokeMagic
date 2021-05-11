@@ -44,10 +44,6 @@ public class PlayerStrokeHandler {
         }
     }
 
-    private void explode() {
-
-    }
-
     private String getStroke(UUID uuid) {
         strokes.putIfAbsent(uuid, "");
         return strokes.get(uuid);
