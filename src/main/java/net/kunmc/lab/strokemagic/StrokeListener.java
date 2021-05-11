@@ -4,6 +4,7 @@ import net.kunmc.lab.strokemagic.event.PlayerToggleRightClickEvent;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.EquipmentSlot;
 
@@ -15,7 +16,7 @@ public class StrokeListener implements Listener {
     private final Map<UUID, Boolean> isHolding = new HashMap<>();
     private final Map<UUID, Float> lastYaws = new HashMap<>();
     private final Map<UUID, Float> lastPitches = new HashMap<>();
-    private final PlayerStrokeHandler manager = PlayerStrokeHandler.getInstance();
+    private final PlayerStrokeHandler strokeHandler = PlayerStrokeHandler.getInstance();
 
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent e) {
@@ -33,7 +34,7 @@ public class StrokeListener implements Listener {
         String stroke = detectStroke(yawDiff, pitchDiff);
         lastYaws.put(uuid, currentYaw);
         lastPitches.put(uuid, currentPitch);
-        manager.addStroke(uuid, stroke);
+        strokeHandler.addStroke(uuid, stroke);
     }
 
     private String detectStroke(float yawDiff, float pitchDiff) {
@@ -59,7 +60,14 @@ public class StrokeListener implements Listener {
             lastPitches.put(uuid, p.getLocation().getPitch());
         } else {
             isHolding.put(uuid, false);
-            manager.resetStroke(uuid);
+            strokeHandler.activateMagic(uuid);
         }
+    }
+
+    @EventHandler
+    public void onItemChange(PlayerItemHeldEvent e) {
+        UUID uuid = e.getPlayer().getUniqueId();
+        strokeHandler.cancel(uuid);
+        isHolding.put(uuid, false);
     }
 }
