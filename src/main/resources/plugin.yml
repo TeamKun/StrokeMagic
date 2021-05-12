@@ -5,4 +5,4 @@ api-version: 1.16
 commands:
   strokemagic:
     usage: |-
-      /strokemagic list - 登録されている魔法の一覧を表示する.
+      /strokemagic list [MagicName] - 登録されている魔法の一覧を表示する.MagicNameを指定した場合は指定した魔法の説明が表示される.
