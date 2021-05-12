@@ -21,7 +21,7 @@ public class StrokeListener implements Listener {
     private final Material RodMaterial = StrokeMagic.getConfiguration().getRodMaterial();
     private final int yawBorder = StrokeMagic.getConfiguration().getYawInputBorderDegree();
     private final int pitchBorder = StrokeMagic.getConfiguration().getPitchInputBorderDegree();
-    
+
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent e) {
         Player p = e.getPlayer();

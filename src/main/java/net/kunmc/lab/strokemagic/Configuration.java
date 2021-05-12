@@ -31,17 +31,19 @@ public class Configuration {
     }
 
     public Map<String, String> getJumpPadConfig() {
-        MemorySection section = ((MemorySection) config.get("Magics.JumpPad"));
-        if (section == null) return null;
-        Map<String, String> settings = new HashMap<>();
-        for (String key : section.getKeys(false)) {
-            settings.put(key, section.getString(key));
-        }
-        return settings;
+        return getMagicConfig("JumpPad");
     }
 
     public Map<String, String> getSkyWalkerConfig() {
-        MemorySection section = ((MemorySection) config.get("Magics.SkyWalker"));
+        return getMagicConfig("SkyWalker");
+    }
+
+    public Map<String, String> getFireballConfig() {
+        return getMagicConfig("Fireball");
+    }
+
+    private Map<String, String> getMagicConfig(String magicName) {
+        MemorySection section = ((MemorySection) config.get("Magics." + magicName));
         if (section == null) return null;
         Map<String, String> settings = new HashMap<>();
         for (String key : section.getKeys(false)) {

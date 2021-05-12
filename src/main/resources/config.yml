@@ -18,3 +18,8 @@ Magics:
     announce: 空中散歩術！
     description: 一定時間足元にブロックが生成され空中を歩くことが出来る.
     radius: 2
+  Fireball:
+    name: Fireball
+    stroke: ↑→←↑
+    announce:
+    description: 火の玉を正面に発射する.
