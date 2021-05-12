@@ -10,21 +10,17 @@ Magics:
   JumpPad:
     name: JumpPad
     stroke: ↓↑
-    announce: ジャンプパッド展開!
     description: 乗ると高くジャンプ出来るブロックを一定時間展開する.
   SkyWalker:
     name: SkyWalker
     stroke: →←→←
-    announce: 空中散歩術！
     description: 一定時間足元にブロックが生成され空中を歩くことが出来る.
     radius: 2
   Fireball:
     name: Fireball
     stroke: ↑→←↑
-    announce:
     description: 火の玉を正面に発射する.
   Heal:
     name: Heal
     stroke: ←↑→↓
-    announce:
     description: HPを4回復する.

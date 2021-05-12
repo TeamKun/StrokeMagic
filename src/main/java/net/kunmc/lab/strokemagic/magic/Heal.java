@@ -9,14 +9,12 @@ import java.util.Map;
 public class Heal implements Magic {
     private final String name;
     private final String stroke;
-    private final String announce;
     private final String description;
 
     public Heal() {
         Map<String, String> config = StrokeMagic.getConfiguration().getHealConfig();
         name = config.get("name");
         stroke = config.get("stroke");
-        announce = config.get("announce");
         description = config.get("description");
     }
 
@@ -39,12 +37,7 @@ public class Heal implements Magic {
     public @NotNull String getStroke() {
         return this.stroke;
     }
-
-    @Override
-    public @NotNull String getAnnounce() {
-        return this.announce;
-    }
-
+    
     @Override
     public @NotNull String getDescription() {
         return this.description;

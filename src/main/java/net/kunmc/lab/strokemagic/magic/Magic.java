@@ -10,7 +10,5 @@ public interface Magic {
 
     @NotNull String getStroke();
 
-    @NotNull String getAnnounce();
-
     @NotNull String getDescription();
 }

@@ -11,14 +11,12 @@ import java.util.Map;
 public class Fireball implements Magic {
     private final String name;
     private final String stroke;
-    private final String announce;
     private final String description;
 
     public Fireball() {
         Map<String, String> config = StrokeMagic.getConfiguration().getFireballConfig();
         name = config.get("name");
         stroke = config.get("stroke");
-        announce = config.get("announce");
         description = config.get("description");
     }
 
@@ -37,12 +35,7 @@ public class Fireball implements Magic {
     public @NotNull String getStroke() {
         return this.stroke;
     }
-
-    @Override
-    public @NotNull String getAnnounce() {
-        return this.announce;
-    }
-
+    
     @Override
     public @NotNull String getDescription() {
         return this.description;

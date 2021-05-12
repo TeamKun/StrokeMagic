@@ -13,7 +13,6 @@ import java.util.Map;
 public class SkyWalker implements Magic {
     private final String name;
     private final String stroke;
-    private final String announce;
     private final String description;
     private final int radius;
 
@@ -21,7 +20,6 @@ public class SkyWalker implements Magic {
         Map<String, String> config = StrokeMagic.getConfiguration().getSkyWalkerConfig();
         name = config.get("name");
         stroke = config.get("stroke");
-        announce = config.get("announce");
         description = config.get("description");
         radius = Integer.parseInt(config.get("radius"));
     }
@@ -64,11 +62,6 @@ public class SkyWalker implements Magic {
     @Override
     public @NotNull String getStroke() {
         return this.stroke;
-    }
-
-    @Override
-    public @NotNull String getAnnounce() {
-        return this.announce;
     }
 
     @Override

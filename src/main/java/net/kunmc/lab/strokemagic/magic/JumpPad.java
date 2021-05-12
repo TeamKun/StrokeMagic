@@ -28,7 +28,6 @@ public class JumpPad implements Magic, Listener {
     private final JavaPlugin plugin = StrokeMagic.getInstance();
     private final String name;
     private final String stroke;
-    private final String announce;
     private final String description;
     private final String metadataKey = "JumpPadSnowball";
     private final List<Block> jumpPads = new ArrayList<>();
@@ -40,7 +39,6 @@ public class JumpPad implements Magic, Listener {
         Map<String, String> config = StrokeMagic.getConfiguration().getJumpPadConfig();
         name = config.get("name");
         stroke = config.get("stroke");
-        announce = config.get("announce");
         description = config.get("description");
     }
 
@@ -59,11 +57,6 @@ public class JumpPad implements Magic, Listener {
     @Override
     public @NotNull String getStroke() {
         return this.stroke;
-    }
-
-    @Override
-    public @NotNull String getAnnounce() {
-        return this.announce;
     }
 
     @Override

@@ -4,6 +4,7 @@ import net.kunmc.lab.strokemagic.magic.Magic;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -64,8 +65,15 @@ public class PlayerStrokeHandler {
         if (p == null) return;
         if (isStrokeMatched(stroke)) {
             Magic magic = magicManager.getMagic(stroke);
-            p.sendTitle(magic.getAnnounce(), ChatColor.AQUA + stroke, 5, 20, 5);
             magic.run(p);
+
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    p.resetTitle();
+                }
+            }.runTaskLater(StrokeMagic.getInstance(), 5);
+
             strokes.put(uuid, "");
             isMatched.put(uuid, false);
         } else {
