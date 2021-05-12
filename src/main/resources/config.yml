@@ -1,0 +1,20 @@
+#横方向のStrokeの入力閾値(default: 12)
+YawInputBorderDegree: 12
+#縦方向のStrokeの入力閾値(default: 12)
+PitchInputBorderDegree: 12
+#右クリックトグルの動作がおかしい場合に上げる(default: 6)
+RightClickHoldOffDelay: 6
+RodMaterial: BLAZE_ROD
+
+Magics:
+  JumpPad:
+    name: JumpPad
+    stroke: ↓↑
+    announce: ジャンプパッド展開!
+    description: 乗ると高くジャンプ出来るブロックを一定時間展開する.
+  SkyWalker:
+    name: SkyWalker
+    stroke: →←→←
+    announce: 空中散歩術！
+    description: 一定時間足元にブロックが生成され空中を歩くことが出来る.
+    radius: 2

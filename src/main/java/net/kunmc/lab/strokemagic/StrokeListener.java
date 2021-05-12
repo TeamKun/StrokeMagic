@@ -1,6 +1,7 @@
 package net.kunmc.lab.strokemagic;
 
 import net.kunmc.lab.strokemagic.event.PlayerToggleRightClickEvent;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,7 +18,10 @@ public class StrokeListener implements Listener {
     private final Map<UUID, Float> lastYaws = new HashMap<>();
     private final Map<UUID, Float> lastPitches = new HashMap<>();
     private final PlayerStrokeHandler strokeHandler = PlayerStrokeHandler.getInstance();
-
+    private final Material RodMaterial = StrokeMagic.getConfiguration().getRodMaterial();
+    private final int yawBorder = StrokeMagic.getConfiguration().getYawInputBorderDegree();
+    private final int pitchBorder = StrokeMagic.getConfiguration().getPitchInputBorderDegree();
+    
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent e) {
         Player p = e.getPlayer();
@@ -29,7 +33,7 @@ public class StrokeListener implements Listener {
         float currentPitch = p.getLocation().getPitch();
         float yawDiff = calcYawDiff(currentYaw, lastYaws.get(uuid));
         float pitchDiff = currentPitch - lastPitches.get(uuid);
-        if (Math.abs(yawDiff) < 12 && Math.abs(pitchDiff) < 12) return;
+        if (Math.abs(yawDiff) < yawBorder && Math.abs(pitchDiff) < pitchBorder) return;
 
         String stroke = detectStroke(yawDiff, pitchDiff);
         lastYaws.put(uuid, currentYaw);
@@ -54,7 +58,7 @@ public class StrokeListener implements Listener {
 
     @EventHandler
     public void onRightClick(PlayerToggleRightClickEvent e) {
-        if (!e.getPlayer().getInventory().getItemInMainHand().getType().equals(StrokeMagic.RodMaterial)) return;
+        if (!e.getPlayer().getInventory().getItemInMainHand().getType().equals(RodMaterial)) return;
         if (e.getHand().equals(EquipmentSlot.OFF_HAND)) return;
 
         Player p = e.getPlayer();

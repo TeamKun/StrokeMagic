@@ -25,18 +25,23 @@ import java.util.List;
 import java.util.Map;
 
 public class JumpPad implements Magic, Listener {
-    private final String name = "JumpPad";
-    private final String stroke = "↓↑";
-    private final String announce = "ジャンプパッド展開!";
-    private final String description = "";
-    private final String metadataKey = "JumpPadSnowball";
     private final JavaPlugin plugin = StrokeMagic.getInstance();
+    private final String name;
+    private final String stroke;
+    private final String announce;
+    private final String description;
+    private final String metadataKey = "JumpPadSnowball";
     private final List<Block> jumpPads = new ArrayList<>();
     //Listの場合,地面に着地することなく2回以上連続でジャンプパッドに乗るとaddとremoveの回数がズレるのでMap
     private final Map<Player, Boolean> isPlayerFalling = new HashMap<>();
 
     public JumpPad() {
         Bukkit.getPluginManager().registerEvents(this, plugin);
+        Map<String, String> config = StrokeMagic.getConfiguration().getJumpPadConfig();
+        name = config.get("name");
+        stroke = config.get("stroke");
+        announce = config.get("announce");
+        description = config.get("description");
     }
 
     @Override
@@ -90,7 +95,6 @@ public class JumpPad implements Magic, Listener {
         if (jumpPads.contains(to.getBlock())) {
             Player p = e.getPlayer();
             isPlayerFalling.put(p, true);
-            Bukkit.getLogger().info("add" + p.getName());
             p.setVelocity(p.getVelocity().add(new Vector(0, 1.2, 0)));
         }
     }
@@ -102,7 +106,6 @@ public class JumpPad implements Magic, Listener {
         Player p = ((Player) e.getEntity());
         if (isPlayerFalling.get(p) != null && isPlayerFalling.get(p)) {
             p.setFallDistance(0);
-            Bukkit.getLogger().info("remove" + p.getName());
             isPlayerFalling.put(p, false);
             e.setCancelled(true);
         }

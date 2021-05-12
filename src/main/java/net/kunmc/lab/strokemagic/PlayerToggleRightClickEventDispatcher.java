@@ -19,6 +19,7 @@ public class PlayerToggleRightClickEventDispatcher implements Listener {
     Map<Player, Boolean> isHoldingOffHand = new HashMap<>();
     Map<Player, BukkitTask> toggleOffMainHandTasks = new HashMap<>();
     Map<Player, BukkitTask> toggleOffOffHandTasks = new HashMap<>();
+    private final int taskDelay = StrokeMagic.getConfiguration().getRightClickHoldOffDelay();
 
     @EventHandler
     public void onInteractInMainHand(PlayerInteractEvent e) {
@@ -34,7 +35,7 @@ public class PlayerToggleRightClickEventDispatcher implements Listener {
                 isHoldingMainHand.put(p, false);
                 Bukkit.getPluginManager().callEvent(new PlayerToggleRightClickEvent(p, e.getHand(), false));
             }
-        }.runTaskLater(StrokeMagic.getInstance(), 6);
+        }.runTaskLater(StrokeMagic.getInstance(), taskDelay);
         toggleOffMainHandTasks.put(p, task);
 
         isHoldingMainHand.putIfAbsent(p, false);
@@ -57,7 +58,7 @@ public class PlayerToggleRightClickEventDispatcher implements Listener {
                 isHoldingOffHand.put(p, false);
                 Bukkit.getPluginManager().callEvent(new PlayerToggleRightClickEvent(p, e.getHand(), false));
             }
-        }.runTaskLater(StrokeMagic.getInstance(), 6);
+        }.runTaskLater(StrokeMagic.getInstance(), taskDelay);
         toggleOffOffHandTasks.put(p, task);
 
         isHoldingOffHand.putIfAbsent(p, false);
