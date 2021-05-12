@@ -1,31 +1,52 @@
 package net.kunmc.lab.strokemagic.magic;
 
+import net.kunmc.lab.strokemagic.StrokeMagic;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Map;
+
 public class Heal implements Magic {
+    private final String name;
+    private final String stroke;
+    private final String announce;
+    private final String description;
+
+    public Heal() {
+        Map<String, String> config = StrokeMagic.getConfiguration().getHealConfig();
+        name = config.get("name");
+        stroke = config.get("stroke");
+        announce = config.get("announce");
+        description = config.get("description");
+    }
+
     @Override
-    public void run(Player player) {
-        
+    public void run(Player p) {
+        double currentHealth = p.getHealth();
+        if (currentHealth <= 16.0) {
+            p.setHealth(currentHealth + 4.0);
+        } else {
+            p.setHealth(20.0);
+        }
     }
 
     @Override
     public @NotNull String getName() {
-        return null;
+        return this.name;
     }
 
     @Override
     public @NotNull String getStroke() {
-        return null;
+        return this.stroke;
     }
 
     @Override
     public @NotNull String getAnnounce() {
-        return null;
+        return this.announce;
     }
 
     @Override
     public @NotNull String getDescription() {
-        return null;
+        return this.description;
     }
 }

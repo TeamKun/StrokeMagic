@@ -42,6 +42,10 @@ public class Configuration {
         return getMagicConfig("Fireball");
     }
 
+    public Map<String, String> getHealConfig() {
+        return getMagicConfig("Heal");
+    }
+
     private Map<String, String> getMagicConfig(String magicName) {
         MemorySection section = ((MemorySection) config.get("Magics." + magicName));
         if (section == null) return null;

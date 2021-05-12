@@ -23,3 +23,8 @@ Magics:
     stroke: ↑→←↑
     announce:
     description: 火の玉を正面に発射する.
+  Heal:
+    name: Heal
+    stroke: ←↑→↓
+    announce:
+    description: HPを4回復する.
