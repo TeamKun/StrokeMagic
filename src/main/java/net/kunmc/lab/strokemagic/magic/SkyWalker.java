@@ -8,14 +8,22 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Map;
+
 public class SkyWalker implements Magic {
-    private final int radius = 2;
-    private final String name = "SkyWalker";
-    private final String stroke = "→←→←";
-    private final String announce = "空中散歩術！";
-    private final String description = "";
+    private final String name;
+    private final String stroke;
+    private final String announce;
+    private final String description;
+    private final int radius;
 
     public SkyWalker() {
+        Map<String, String> config = StrokeMagic.getConfiguration().getSkyWalkerConfig();
+        name = config.get("name");
+        stroke = config.get("stroke");
+        announce = config.get("announce");
+        description = config.get("description");
+        radius = Integer.parseInt(config.get("radius"));
     }
 
     @Override
