@@ -1,5 +1,6 @@
 package net.kunmc.lab.strokemagic;
 
+import net.kunmc.lab.strokemagic.command.CommandHandler;
 import net.kunmc.lab.strokemagic.magic.Fireball;
 import net.kunmc.lab.strokemagic.magic.Heal;
 import net.kunmc.lab.strokemagic.magic.JumpPad;
@@ -31,6 +32,9 @@ public final class StrokeMagic extends JavaPlugin {
         manager.registerMagic(new Heal());
         getServer().getPluginManager().registerEvents(new PlayerToggleRightClickEventDispatcher(), this);
         getServer().getPluginManager().registerEvents(new StrokeListener(), this);
+
+        getServer().getPluginCommand("strokemagic").setExecutor(new CommandHandler());
+        getServer().getPluginCommand("strokemagic").setTabCompleter(new CommandHandler());
     }
 
     @Override

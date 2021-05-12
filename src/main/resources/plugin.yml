@@ -2,3 +2,7 @@ name: StrokeMagic
 version: ${project.version}
 main: net.kunmc.lab.strokemagic.StrokeMagic
 api-version: 1.16
+commands:
+  strokemagic:
+    usage: |-
+      /strokemagic list - 登録されている魔法の一覧を表示する.
