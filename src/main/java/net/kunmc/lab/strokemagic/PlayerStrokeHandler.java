@@ -14,6 +14,7 @@ public class PlayerStrokeHandler {
     private final Map<UUID, String> strokes = new HashMap<>();
     private final Map<UUID, Boolean> isMatched = new HashMap<>();
     private final MagicManager magicManager = MagicManager.getInstance();
+    private final int maxStroke = StrokeMagic.getConfiguration().getMaxStroke();
     private static final PlayerStrokeHandler singleton = new PlayerStrokeHandler();
 
     public static PlayerStrokeHandler getInstance() {
@@ -33,7 +34,7 @@ public class PlayerStrokeHandler {
         String newStroke = getStroke(uuid) + stroke;
         strokes.put(uuid, newStroke);
 
-        if (newStroke.length() >= 16) {
+        if (newStroke.length() > maxStroke) {
             isMatched.put(uuid, true);
         }
 

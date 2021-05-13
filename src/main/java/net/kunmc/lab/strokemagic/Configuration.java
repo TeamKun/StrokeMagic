@@ -14,6 +14,10 @@ public class Configuration {
         this.config = config;
     }
 
+    public int getMaxStroke() {
+        return config.getInt("MaxStroke");
+    }
+
     public Material getRodMaterial() {
         return Material.valueOf(config.getString("RodMaterial"));
     }

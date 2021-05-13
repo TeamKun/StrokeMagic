@@ -4,7 +4,10 @@ YawInputBorderDegree: 14
 PitchInputBorderDegree: 10
 #右クリックトグルの動作がおかしい場合に上げる(default: 6)
 RightClickHoldOffDelay: 6
+
+MaxStroke: 16
 RodMaterial: BLAZE_ROD
+
 
 Magics:
   JumpPad:
