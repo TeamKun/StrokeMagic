@@ -24,8 +24,6 @@ public class StrokeListener implements Listener {
     private final Map<UUID, BukkitTask> povTasks = new HashMap<>();
     private final PlayerStrokeHandler strokeHandler = PlayerStrokeHandler.getInstance();
     private final Material RodMaterial = StrokeMagic.getConfiguration().getRodMaterial();
-    private final int yawBorder = StrokeMagic.getConfiguration().getYawInputBorderDegree();
-    private final int pitchBorder = StrokeMagic.getConfiguration().getPitchInputBorderDegree();
 
     private class RetrievePlayerPOVTask extends BukkitRunnable {
         UUID uuid;
@@ -46,7 +44,8 @@ public class StrokeListener implements Listener {
             float currentPitch = p.getLocation().getPitch();
             float yawDiff = calcYawDiff(currentYaw, lastYaws.get(uuid));
             float pitchDiff = currentPitch - lastPitches.get(uuid);
-            if (Math.abs(yawDiff) < yawBorder && Math.abs(pitchDiff) < pitchBorder) return;
+            if (Math.abs(yawDiff) < StrokeMagic.getConfiguration().getYawInputBorderDegree()
+                    && Math.abs(pitchDiff) < StrokeMagic.getConfiguration().getPitchInputBorderDegree()) return;
 
             String stroke = detectStroke(yawDiff, pitchDiff);
             lastYaws.put(uuid, currentYaw);

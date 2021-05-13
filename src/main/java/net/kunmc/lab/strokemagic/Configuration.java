@@ -26,12 +26,24 @@ public class Configuration {
         return config.getInt("YawInputBorderDegree");
     }
 
+    public void setYawInputBorderDegree(int degree) {
+        config.set("YawInputBorderDegree", degree);
+    }
+
     public int getPitchInputBorderDegree() {
         return config.getInt("PitchInputBorderDegree");
     }
 
+    public void setPitchInputBorderDegree(int degree) {
+        config.set("PitchInputBorderDegree", degree);
+    }
+
     public int getRightClickHoldOffDelay() {
         return config.getInt("RightClickHoldOffDelay");
+    }
+
+    public void setRightClickHoldOffDelay(int tick) {
+        config.set("RightClickHoldOffDelay", tick);
     }
 
     public Map<String, String> getJumpPadConfig() {
