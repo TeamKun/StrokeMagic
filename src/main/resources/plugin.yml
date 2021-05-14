@@ -11,7 +11,7 @@ commands:
 permissions:
   strokemagic.list:
     description: 魔法一覧を表示することが出来ます.
-    default: op
+    default: true
   strokemagic.config:
     description: 一部の設定を変えることが出来ます.
     default: op
