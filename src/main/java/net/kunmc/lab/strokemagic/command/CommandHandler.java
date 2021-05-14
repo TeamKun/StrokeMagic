@@ -27,9 +27,17 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
         String subCmd = args[0];
         switch (subCmd) {
             case "config":
+                if (!sender.hasPermission("strokemagic.config")) {
+                    sender.sendMessage(ChatColor.RED + "検眼がありません.");
+                    return true;
+                }
                 configCommand(sender, args);
                 break;
             case "list":
+                if (!sender.hasPermission("strokemagic.list")) {
+                    sender.sendMessage(ChatColor.RED + "検眼がありません.");
+                    return true;
+                }
                 listCommand(sender, args);
                 break;
             default:
