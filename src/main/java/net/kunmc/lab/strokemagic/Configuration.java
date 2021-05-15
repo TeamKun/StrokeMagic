@@ -26,8 +26,13 @@ public class Configuration {
         return config.getInt("YawInputBorderDegree");
     }
 
+    private void set(String key, Object obj) {
+        config.set(key, obj);
+        StrokeMagic.getInstance().saveConfig();
+    }
+
     public void setYawInputBorderDegree(int degree) {
-        config.set("YawInputBorderDegree", degree);
+        set("YawInputBorderDegree", degree);
     }
 
     public int getPitchInputBorderDegree() {
@@ -35,7 +40,7 @@ public class Configuration {
     }
 
     public void setPitchInputBorderDegree(int degree) {
-        config.set("PitchInputBorderDegree", degree);
+        set("PitchInputBorderDegree", degree);
     }
 
     public int getRightClickHoldOffDelay() {
@@ -43,7 +48,7 @@ public class Configuration {
     }
 
     public void setRightClickHoldOffDelay(int tick) {
-        config.set("RightClickHoldOffDelay", tick);
+        set("RightClickHoldOffDelay", tick);
     }
 
     public Map<String, String> getJumpPadConfig() {
