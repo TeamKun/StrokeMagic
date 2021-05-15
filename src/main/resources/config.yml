@@ -1,9 +1,9 @@
-#横方向のStrokeの入力閾値(default: 14)
-YawInputBorderDegree: 14
-#縦方向のStrokeの入力閾値(default: 10)
-PitchInputBorderDegree: 10
-#右クリックトグルの動作がおかしい場合に上げる(default: 6)
-RightClickHoldOffDelay: 6
+#横方向のStrokeの入力閾値(default: 15)
+YawInputBorderDegree: 15
+#縦方向のStrokeの入力閾値(default: 11)
+PitchInputBorderDegree: 11
+#右クリックトグルの動作がおかしい場合に上げる(default: 7)
+RightClickHoldOffDelay: 7
 
 MaxStroke: 16
 RodMaterial: BLAZE_ROD
