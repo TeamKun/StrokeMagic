@@ -1,5 +1,6 @@
 # StrokeMagic
 「↑↓→→←」のように杖でストロークを描くことで魔法を出せるプラグイン
+
 minecraft version: 1.16.5
 ## コマンド
 * strokemagic  
