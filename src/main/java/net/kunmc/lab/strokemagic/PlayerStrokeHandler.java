@@ -39,8 +39,10 @@ public class PlayerStrokeHandler {
         }
 
         if (isStrokeMatched(newStroke)) {
-            p.sendTitle(magicManager.getMagic(newStroke).getName(), ChatColor.AQUA + newStroke, 5, 65536, 0);
+            Magic magic = magicManager.getMagic(newStroke);
+            p.sendTitle(magic.getName(), ChatColor.AQUA + newStroke, 5, 65536, 0);
             isMatched.put(uuid, true);
+            magic.onReady(p);
         } else {
             p.sendTitle("", newStroke, 0, 65536, 0);
         }

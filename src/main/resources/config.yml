@@ -60,3 +60,7 @@ Magics:
     stroke: ↑↓↑↑
     description: 目線の先にテレポートする.
     maxDistance: 50
+  KeyOfTheKingsLaw:
+    name: Key of the King's Law
+    stroke: ←←←↑↑↑→→→
+    description: 複数のトライデントを発射する.

@@ -24,6 +24,11 @@ public class Lightning implements Magic {
     }
 
     @Override
+    public void onReady(Player p) {
+
+    }
+
+    @Override
     public void run(Player p) {
         Entity targetEntity = p.getTargetEntity(maxDistance);
         Block targetBlock = p.getTargetBlock(maxDistance);

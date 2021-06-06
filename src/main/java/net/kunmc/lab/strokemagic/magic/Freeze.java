@@ -36,6 +36,11 @@ public class Freeze implements Magic {
     }
 
     @Override
+    public void onReady(Player p) {
+
+    }
+
+    @Override
     public void run(Player p) {
         Entity entity = p.getTargetEntity(maxDistance);
         if (entity == null) {

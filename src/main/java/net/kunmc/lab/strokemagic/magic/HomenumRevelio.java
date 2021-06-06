@@ -26,6 +26,11 @@ public class HomenumRevelio implements Magic {
     }
 
     @Override
+    public void onReady(Player p) {
+
+    }
+
+    @Override
     public void run(Player p) {
         Bukkit.selectEntities(p, String.format("@e[type=minecraft:player,distance=1..%d]", range)).stream()
                 .map(x -> ((Player) x))

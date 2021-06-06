@@ -25,6 +25,11 @@ public class SkyWalker implements Magic {
     }
 
     @Override
+    public void onReady(Player p) {
+
+    }
+
+    @Override
     public void run(Player p) {
         new BukkitRunnable() {
             int count = 0;

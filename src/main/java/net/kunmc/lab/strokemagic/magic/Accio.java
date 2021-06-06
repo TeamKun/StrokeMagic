@@ -28,6 +28,11 @@ public class Accio implements Magic {
     }
 
     @Override
+    public void onReady(Player p) {
+
+    }
+
+    @Override
     public void run(Player p) {
         Vector direction = p.getLocation().getDirection();
         Location to = p.getEyeLocation().add(direction.getX(), -0.4, direction.getZ());

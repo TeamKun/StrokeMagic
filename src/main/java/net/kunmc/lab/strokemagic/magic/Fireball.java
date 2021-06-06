@@ -21,6 +21,11 @@ public class Fireball implements Magic {
     }
 
     @Override
+    public void onReady(Player p) {
+
+    }
+
+    @Override
     public void run(Player p) {
         p.getWorld().spawnEntity(p.getEyeLocation(), EntityType.FIREBALL);
         p.getWorld().playSound(p.getLocation(), Sound.ITEM_FIRECHARGE_USE, 1.0F, 1.0F);
@@ -35,7 +40,7 @@ public class Fireball implements Magic {
     public @NotNull String getStroke() {
         return this.stroke;
     }
-    
+
     @Override
     public @NotNull String getDescription() {
         return this.description;

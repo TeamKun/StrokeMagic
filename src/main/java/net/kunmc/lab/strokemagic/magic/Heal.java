@@ -19,6 +19,11 @@ public class Heal implements Magic {
     }
 
     @Override
+    public void onReady(Player p) {
+
+    }
+
+    @Override
     public void run(Player p) {
         double currentHealth = p.getHealth();
         if (currentHealth <= 16.0) {
@@ -37,7 +42,7 @@ public class Heal implements Magic {
     public @NotNull String getStroke() {
         return this.stroke;
     }
-    
+
     @Override
     public @NotNull String getDescription() {
         return this.description;
