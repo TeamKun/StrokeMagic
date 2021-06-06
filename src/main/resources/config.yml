@@ -44,3 +44,9 @@ Magics:
     description: 周囲のプレイヤーを一時的に発光させる.
     range: 15
     duration: 100
+  Freeze:
+    name: Freeze
+    stroke: ←→←→←→
+    description: 目先のエンティティを一時的に凍らせる.
+    maxDistance: 30
+    duration: 60

@@ -30,7 +30,8 @@ public final class StrokeMagic extends JavaPlugin {
         manager.registerMagic(new Depulso());
         manager.registerMagic(new Accio());
         manager.registerMagic(new HomenumRevelio());
-        
+        manager.registerMagic(new Freeze());
+
         getServer().getPluginManager().registerEvents(new PlayerToggleRightClickEventDispatcher(), this);
         getServer().getPluginManager().registerEvents(new StrokeListener(), this);
 
