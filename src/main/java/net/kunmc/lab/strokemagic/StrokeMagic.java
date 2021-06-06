@@ -23,6 +23,7 @@ public final class StrokeMagic extends JavaPlugin {
         saveDefaultConfig();
         INSTANCE = this;
         config = new Configuration(getConfig());
+
         manager.registerMagic(new SkyWalker());
         manager.registerMagic(new JumpPad());
         manager.registerMagic(new Fireball());
@@ -31,6 +32,7 @@ public final class StrokeMagic extends JavaPlugin {
         manager.registerMagic(new Accio());
         manager.registerMagic(new HomenumRevelio());
         manager.registerMagic(new Freeze());
+        manager.registerMagic(new Lightning());
 
         getServer().getPluginManager().registerEvents(new PlayerToggleRightClickEventDispatcher(), this);
         getServer().getPluginManager().registerEvents(new StrokeListener(), this);

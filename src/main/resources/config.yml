@@ -47,6 +47,11 @@ Magics:
   Freeze:
     name: Freeze
     stroke: ←→←→←→
-    description: 目先のエンティティを一時的に凍らせる.
+    description: 目線のエンティティを一時的に凍らせる.
     maxDistance: 30
     duration: 60
+  Lightning:
+    name: Lightning
+    stroke: ↓↓←→
+    description: 目線の先に雷を落とす.
+    maxDistance: 30
