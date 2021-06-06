@@ -25,12 +25,12 @@ public class SkyWalker implements Magic {
     }
 
     @Override
-    public void run(Player player) {
+    public void run(Player p) {
         new BukkitRunnable() {
             int count = 0;
 
             public void run() {
-                Location startLoc = player.getLocation().subtract(radius, 1, radius);
+                Location startLoc = p.getLocation().subtract(radius, 1, radius);
 
                 for (int x = startLoc.getBlockX(); x < startLoc.getBlockX() + radius * 2; x++) {
                     for (int z = startLoc.getBlockZ(); z < startLoc.getBlockZ() + radius * 2; z++) {

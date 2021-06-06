@@ -1,38 +1,50 @@
 package net.kunmc.lab.strokemagic.magic;
 
 import net.kunmc.lab.strokemagic.StrokeMagic;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.FallingBlock;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 
-public class Depulso implements Magic {
+public class Accio implements Magic {
     private final String name;
     private final String stroke;
     private final String description;
     private final int maxDistance;
-    private final int power;
 
-    public Depulso() {
-        Map<String, String> config = StrokeMagic.getConfiguration().getMagicConfig("Depulso");
+    public Accio() {
+        Map<String, String> config = StrokeMagic.getConfiguration().getMagicConfig("Accio");
         name = config.get("name");
         stroke = config.get("stroke");
         description = config.get("description");
         maxDistance = Integer.parseInt(config.get("maxDistance"));
-        power = Integer.parseInt(config.get("power"));
     }
 
     @Override
     public void run(Player p) {
-        Entity entity = p.getTargetEntity(maxDistance);
-        if (entity == null) {
+        Vector direction = p.getLocation().getDirection();
+        Location to = p.getEyeLocation().add(direction.getX(), -0.4, direction.getZ());
+
+        Entity hitEntity = p.getTargetEntity(maxDistance);
+        if (hitEntity != null) {
+            hitEntity.teleport(to);
             return;
         }
 
-        Vector newVelocity = entity.getVelocity().add(p.getLocation().getDirection()).multiply(power);
-        entity.setVelocity(newVelocity);
+        Block hitBlock = p.getTargetBlock(maxDistance);
+        if (hitBlock != null) {
+            BlockData blockData = hitBlock.getBlockData();
+            hitBlock.setType(Material.AIR);
+            FallingBlock fallingBlock = hitBlock.getWorld().spawnFallingBlock(hitBlock.getLocation(), blockData);
+            fallingBlock.teleport(to);
+        }
     }
 
     @Override

@@ -43,9 +43,9 @@ public class JumpPad implements Magic, Listener {
     }
 
     @Override
-    public void run(Player player) {
-        Entity ball = player.getWorld().spawnEntity(player.getEyeLocation(), EntityType.SNOWBALL);
-        ball.setVelocity(player.getLocation().getDirection());
+    public void run(Player p) {
+        Entity ball = p.getWorld().spawnEntity(p.getEyeLocation(), EntityType.SNOWBALL);
+        ball.setVelocity(p.getLocation().getDirection());
         ball.setMetadata(metadataKey, new FixedMetadataValue(plugin, 256));
     }
 

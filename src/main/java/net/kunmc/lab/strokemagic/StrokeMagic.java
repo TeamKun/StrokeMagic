@@ -28,6 +28,7 @@ public final class StrokeMagic extends JavaPlugin {
         manager.registerMagic(new Fireball());
         manager.registerMagic(new Heal());
         manager.registerMagic(new Depulso());
+        manager.registerMagic(new Accio());
         getServer().getPluginManager().registerEvents(new PlayerToggleRightClickEventDispatcher(), this);
         getServer().getPluginManager().registerEvents(new StrokeListener(), this);
 

@@ -33,3 +33,8 @@ Magics:
     description: 目線のエンティティを吹き飛ばす.
     maxDistance: 30
     power: 4
+  Accio:
+    name: Accio
+    stroke: ↓↓↓↓
+    description: 目線のエンティティ或いはブロックを目前に引き寄せる.
+    maxDistance: 30
