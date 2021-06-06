@@ -12,7 +12,7 @@ public class Heal implements Magic {
     private final String description;
 
     public Heal() {
-        Map<String, String> config = StrokeMagic.getConfiguration().getHealConfig();
+        Map<String, String> config = StrokeMagic.getConfiguration().getMagicConfig("Heal");
         name = config.get("name");
         stroke = config.get("stroke");
         description = config.get("description");

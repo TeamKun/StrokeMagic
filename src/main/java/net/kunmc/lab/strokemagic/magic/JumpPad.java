@@ -36,7 +36,7 @@ public class JumpPad implements Magic, Listener {
 
     public JumpPad() {
         Bukkit.getPluginManager().registerEvents(this, plugin);
-        Map<String, String> config = StrokeMagic.getConfiguration().getJumpPadConfig();
+        Map<String, String> config = StrokeMagic.getConfiguration().getMagicConfig("JumpPad");
         name = config.get("name");
         stroke = config.get("stroke");
         description = config.get("description");

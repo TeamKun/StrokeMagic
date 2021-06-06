@@ -27,3 +27,9 @@ Magics:
     name: Heal
     stroke: ←↑→↓
     description: HPを4回復する.
+  Depulso:
+    name: Depulso
+    stroke: ↑↑↑↑
+    description: 目線のエンティティを吹き飛ばす.
+    maxDistance: 30
+    power: 4

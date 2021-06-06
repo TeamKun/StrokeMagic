@@ -17,7 +17,7 @@ public class SkyWalker implements Magic {
     private final int radius;
 
     public SkyWalker() {
-        Map<String, String> config = StrokeMagic.getConfiguration().getSkyWalkerConfig();
+        Map<String, String> config = StrokeMagic.getConfiguration().getMagicConfig("SkyWalker");
         name = config.get("name");
         stroke = config.get("stroke");
         description = config.get("description");

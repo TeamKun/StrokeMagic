@@ -14,7 +14,7 @@ public class Fireball implements Magic {
     private final String description;
 
     public Fireball() {
-        Map<String, String> config = StrokeMagic.getConfiguration().getFireballConfig();
+        Map<String, String> config = StrokeMagic.getConfiguration().getMagicConfig("Fireball");
         name = config.get("name");
         stroke = config.get("stroke");
         description = config.get("description");

@@ -51,23 +51,7 @@ public class Configuration {
         set("RightClickHoldOffDelay", tick);
     }
 
-    public Map<String, String> getJumpPadConfig() {
-        return getMagicConfig("JumpPad");
-    }
-
-    public Map<String, String> getSkyWalkerConfig() {
-        return getMagicConfig("SkyWalker");
-    }
-
-    public Map<String, String> getFireballConfig() {
-        return getMagicConfig("Fireball");
-    }
-
-    public Map<String, String> getHealConfig() {
-        return getMagicConfig("Heal");
-    }
-
-    private Map<String, String> getMagicConfig(String magicName) {
+    public Map<String, String> getMagicConfig(String magicName) {
         MemorySection section = ((MemorySection) config.get("Magics." + magicName));
         if (section == null) return null;
         Map<String, String> settings = new HashMap<>();
