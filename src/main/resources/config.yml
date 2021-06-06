@@ -38,3 +38,9 @@ Magics:
     stroke: ↓↓↓↓
     description: 目線のエンティティ或いはブロックを目前に引き寄せる.
     maxDistance: 30
+  HomenumRevelio:
+    name: HomenumRevelio
+    stroke: ↑→↓←↑
+    description: 周囲のプレイヤーを一時的に発光させる.
+    range: 15
+    duration: 100
