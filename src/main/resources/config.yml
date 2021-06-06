@@ -55,3 +55,8 @@ Magics:
     stroke: ↓↓←→
     description: 目線の先に雷を落とす.
     maxDistance: 30
+  Teleport:
+    name: Teleport
+    stroke: ↑↓↑↑
+    description: 目線の先にテレポートする.
+    maxDistance: 50
