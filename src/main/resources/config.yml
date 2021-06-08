@@ -61,6 +61,9 @@ Magics:
     description: 目線の先にテレポートする.
     maxDistance: 50
   KeyOfTheKingsLaw:
-    name: Key of the King's Law
+    name: KeyOfTheKing'sLaw
     stroke: ←←←↑↑↑→→→
     description: 複数のトライデントを発射する.
+    maxDistance: 50
+    speed: 5
+    gap: 3
