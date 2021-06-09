@@ -23,6 +23,7 @@ Magics:
     name: Fireball
     stroke: ↑→←↑
     description: 火の玉を正面に発射する.
+    affectRadius: 2
   Heal:
     name: Heal
     stroke: ←↑→↓

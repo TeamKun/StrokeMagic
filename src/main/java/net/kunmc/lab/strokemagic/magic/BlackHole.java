@@ -1,8 +1,8 @@
 package net.kunmc.lab.strokemagic.magic;
 
 import net.kunmc.lab.strokemagic.StrokeMagic;
+import net.kunmc.lab.strokemagic.util.Utils;
 import org.bukkit.*;
-import org.bukkit.block.Block;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.FallingBlock;
 import org.bukkit.entity.Player;
@@ -10,9 +10,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 public class BlackHole implements Magic {
     private final String name;
@@ -49,7 +47,7 @@ public class BlackHole implements Magic {
                     this.cancel();
                 }
 
-                sphereAround(point, (int) radius).forEach(x -> {
+                Utils.sphereAround(point, (int) radius).forEach(x -> {
                     if (x.getType().equals(Material.AIR)) {
                         return;
                     }
@@ -86,21 +84,5 @@ public class BlackHole implements Magic {
     @Override
     public @NotNull String getDescription() {
         return this.description;
-    }
-
-    private Set<Block> sphereAround(Location location, int radius) {
-        Set<Block> sphere = new HashSet<>();
-        Block center = location.getBlock();
-        for (int x = -radius; x <= radius; x++) {
-            for (int y = -radius; y <= radius; y++) {
-                for (int z = -radius; z <= radius; z++) {
-                    Block b = center.getRelative(x, y, z);
-                    if (center.getLocation().distance(b.getLocation()) <= radius) {
-                        sphere.add(b);
-                    }
-                }
-            }
-        }
-        return sphere;
     }
 }
