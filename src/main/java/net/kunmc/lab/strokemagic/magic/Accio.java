@@ -39,6 +39,8 @@ public class Accio implements Magic {
 
         Entity hitEntity = p.getTargetEntity(maxDistance);
         if (hitEntity != null) {
+            to.setPitch(hitEntity.getLocation().getPitch());
+            to.setYaw(hitEntity.getLocation().getYaw());
             hitEntity.teleport(to);
             return;
         }
