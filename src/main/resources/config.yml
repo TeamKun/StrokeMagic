@@ -67,3 +67,10 @@ Magics:
     maxDistance: 50
     speed: 5
     gap: 3
+  BlackHole:
+    name: BlackHole
+    stroke: ↓←↑→↓←↑→
+    description: ブラックホールを発射する.
+    maxDistance: 50
+    radius: 4
+

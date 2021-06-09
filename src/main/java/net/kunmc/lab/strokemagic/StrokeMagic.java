@@ -35,6 +35,7 @@ public final class StrokeMagic extends JavaPlugin {
         manager.registerMagic(new Lightning());
         manager.registerMagic(new Teleport());
         manager.registerMagic(new KeyOfTheKingsLaw());
+        manager.registerMagic(new BlackHole());
 
         getServer().getPluginManager().registerEvents(new PlayerToggleRightClickEventDispatcher(), this);
         getServer().getPluginManager().registerEvents(new StrokeListener(), this);
